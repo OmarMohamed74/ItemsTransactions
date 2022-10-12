@@ -1,0 +1,54 @@
+﻿
+@model IEnumerable<Item>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">    
+<a class="btn btn-primary" asp-controller="Items" asp-action="Create">Add Item</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Code</th>
+     
+      <th scope="col">Name</th>
+      <th scope="col" >UnitName</th>
+      <th scope="col" >CategoryName</th>
+      <th scope="col" class="text-center">Operations</th>
+     
+      
+
+     
+    </tr>
+  </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+ <tr>
+      <td>@item.Id</td>
+      <td>@item.Code</td>
+      
+      <td>@item.Name</td>  
+      <td>@item.Unit.UnitName</td>  
+      <td>@item.Category.CategoryName</td> 
+
+
+      <form asp-controller="Items"asp-action="Delete" asp-route-Id=@item.Id >
+      <td class="text-center">
+      <a class="btn btn-primary " asp-controller="Items"asp-action="Details" asp-route-Id=@item.Id >
+          
+          <i class="fa-solid fa-circle-info"></i>
+          Details</a>
+      <a class ="btn btn-success" asp-controller="Items" asp-action="Update" asp-route-Id=@item.Id  >
+          
+          Update</a>
+      <button class ="btn btn-danger" onclick="return confirm('Are you sure you want to delete : @item.Name')" >
+         <i class="bi bi-trash"></i>
+          </button>
+      </td>
+     
+      </form> 
+    </tr>
+    }
+
+ 
+  </tbody>
+</table>
+

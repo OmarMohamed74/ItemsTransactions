@@ -1,0 +1,28 @@
+﻿@model Item
+
+<form asp-controller="Items" asp-action="Update">
+  <div class="mb-3">
+    <label class="form-label">Id</label>
+    <input type="number" value="@Model.Id" disabled class="form-control" name="Id">
+    
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Code</label>
+    <input type="text" disabled class="form-control" value="@Model.Code" name="Code">
+  </div>
+ <div class="mb-3">
+    <label  class="form-label">Name</label>
+    <input type="text" class="form-control" value="@Model.Name" name="Name">
+  </div>
+
+    <div class="mb-3">
+    <label  class="form-label">UnitName</label>
+    <input type="text" class="form-control" value="@Model.Unit.UnitName" name="UnitName">
+  </div>
+
+  <div class="mb-3">
+    <label  class="form-label">CategoryName</label>
+    <input type="text" class="form-control" value="@Model.Category.CategoryName" name="CategoryName">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
